@@ -1,15 +1,27 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cris <cris@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/07 20:26:19 by cris              #+#    #+#              #
+#    Updated: 2025/02/10 16:02:45 by cris             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = fractol
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -Imlx
 
 MLX_DIR = mlx
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
-SRCS = fractol.c
+SRCS = fractol.c hooks.c
 OBJS = $(SRCS:.c=.o)
 
-LDFLAGS = -L$(MLX_DIR) -lmlx -L/usr/X11/lib -lXext -lX11 -lm
+LDFLAGS =-L$(MLX_DIR) -lmlx -L/usr/X11/lib -lXext -lX11 -lm -O3 -Ofast -flto
 
 all: $(NAME)
 
